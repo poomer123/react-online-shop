@@ -1,22 +1,26 @@
 import React from 'react'
 import clsx from 'clsx'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import List from '@material-ui/core/List'
-import Typography from '@material-ui/core/Typography'
-import Divider from '@material-ui/core/Divider'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
+import {
+    Drawer,
+    CssBaseline,
+    AppBar,
+    Toolbar,
+    List,
+    Typography,
+    Divider,
+    IconButton,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+} from '@material-ui/core'
+import {
+    Menu,
+    ChevronLeft,
+    ChevronRight,
+    Mail,
+    Inbox,
+} from '@material-ui/icons'
 
 const drawerWidth = 240
 
@@ -110,7 +114,7 @@ export default function PersistentDrawerLeft() {
                             open && classes.hide
                         )}
                     >
-                        <MenuIcon />
+                        <Menu />
                     </IconButton>
                     <Typography variant="h6" noWrap>
                         Persistent drawer
@@ -129,9 +133,9 @@ export default function PersistentDrawerLeft() {
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? (
-                            <ChevronLeftIcon />
+                            <ChevronLeft />
                         ) : (
-                            <ChevronRightIcon />
+                            <ChevronRight />
                         )}
                     </IconButton>
                 </div>
@@ -141,11 +145,7 @@ export default function PersistentDrawerLeft() {
                         (text, index) => (
                             <ListItem button key={text}>
                                 <ListItemIcon>
-                                    {index % 2 === 0 ? (
-                                        <InboxIcon />
-                                    ) : (
-                                        <MailIcon />
-                                    )}
+                                    {index % 2 === 0 ? <Inbox /> : <Mail />}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItem>
@@ -157,7 +157,7 @@ export default function PersistentDrawerLeft() {
                     {['All mail', 'Trash', 'Spam'].map((text, index) => (
                         <ListItem button key={text}>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                {index % 2 === 0 ? <Inbox /> : <Mail />}
                             </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
